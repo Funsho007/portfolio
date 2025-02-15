@@ -6,7 +6,24 @@
     <title>Ola Oke | About</title>
     <script defer src="script.js"></script>
     <link rel="stylesheet" href="styles.css">
-
+    <style>
+        .skills-list {
+            display: none;
+            transition: all 0.3s ease-in-out;
+        }
+        .dropdown-btn {
+            cursor: pointer;
+            background-color: #0a369d;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            text-align: center;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body id="top">
 
@@ -29,13 +46,40 @@
         <h2>About Me</h2>
         <div class="about-content">
             <img src="profile-photo.jpg" alt="Ola Oke" class="profile-photo">
-
-
             <p>
                 I'm a passionate web developer with a love for building interactive and user-friendly applications. 
                 My journey in coding began with a curiosity for technology, and it has grown into a deep passion 
                 for solving problems and creating digital experiences.
             </p>
+        </div>
+        
+        <!-- Skills Dropdown in About Section -->
+        <button class="dropdown-btn" onclick="toggleSkills()">Show Skills</button>
+        <div class="skills-list" id="skillsList">
+            <div class="skill">
+                <span>HTML</span>
+                <progress value="90" max="100"></progress>
+            </div>
+            <div class="skill">
+                <span>CSS</span>
+                <progress value="85" max="100"></progress>
+            </div>
+            <div class="skill">
+                <span>JavaScript</span>
+                <progress value="80" max="100"></progress>
+            </div>
+            <div class="skill">
+                <span>React</span>
+                <progress value="75" max="100"></progress>
+            </div>
+            <div class="skill">
+                <span>Node.js</span>
+                <progress value="70" max="100"></progress>
+            </div>
+            <div class="skill">
+                <span>MongoDB</span>
+                <progress value="65" max="100"></progress>
+            </div>
         </div>
     </section>
 
@@ -50,5 +94,18 @@
         <a href="#top" class="back-to-top">Back to Top</a>
     </footer>
 
+    <script>
+        function toggleSkills() {
+            let skillsList = document.getElementById("skillsList");
+            let btn = document.querySelector(".dropdown-btn");
+            if (skillsList.style.display === "none" || skillsList.style.display === "") {
+                skillsList.style.display = "block";
+                btn.textContent = "Hide Skills";
+            } else {
+                skillsList.style.display = "none";
+                btn.textContent = "Show Skills";
+            }
+        }
+    </script>
 </body>
 </html>
